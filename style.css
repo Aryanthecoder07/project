@@ -1,0 +1,35 @@
+:root { --primary: #4f46e5; --bg: #f8fafc; --bad: #dc2626; --good: #059669; }
+
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 40px; color: #1e293b; }
+.container { max-width: 1000px; margin: auto; }
+header { text-align: center; margin-bottom: 30px; }
+header h1 span { font-size: 0.9rem; color: var(--primary); font-weight: 300; }
+
+.role-config { background: white; padding: 20px; border-radius: 12px; margin-bottom: 25px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.role-config input { padding: 8px 15px; border-radius: 6px; border: 1px solid #cbd5e1; width: 250px; margin-left: 10px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.card { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.card-title { font-weight: bold; margin-bottom: 15px; color: var(--primary); }
+.disabled { opacity: 0.4; pointer-events: none; filter: grayscale(1); }
+
+.topic-box { background: #f1f5f9; padding: 12px; border-radius: 8px; font-style: italic; font-size: 0.9rem; margin: 10px 0; border-left: 4px solid var(--primary); }
+textarea { width: 100%; height: 130px; box-sizing: border-box; border-radius: 10px; border: 2px solid #e2e8f0; padding: 12px; font-size: 1rem; }
+
+.main-btn { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 15px; }
+.topic-btn { background: none; border: 1px solid var(--primary); color: var(--primary); border-radius: 4px; cursor: pointer; font-size: 0.75rem; padding: 3px 8px; }
+
+.report-box { margin-top: 40px; background: white; padding: 35px; border-radius: 20px; box-shadow: 0 20px 25px rgba(0,0,0,0.1); display: none; border: 1px solid #e2e8f0; }
+.report-header { border-bottom: 2px solid #1e293b; display: flex; justify-content: space-between; padding-bottom: 15px; margin-bottom: 20px; }
+.status-badge { padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.75rem; }
+.crit { background: #fee2e2; color: var(--bad); }
+.stab { background: #dcfce7; color: var(--good); }
+
+.report-table { width: 100%; margin: 20px 0; border-collapse: collapse; text-align: left; }
+.report-table th, .report-table td { padding: 12px; border-bottom: 1px solid #f1f5f9; }
+.report-table th { color: #64748b; font-size: 0.7rem; text-transform: uppercase; }
+
+.bad { color: var(--bad); font-weight: bold; }
+.good { color: var(--good); }
+.score-footer { font-size: 2.5rem; font-weight: 900; text-align: center; margin: 20px 0; }
+.clinical-note { background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 5px solid #1e293b; font-size: 0.9rem; }

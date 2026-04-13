@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnostic Fatigue AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mental Fatigue Analyzer <span>(SDE Diagnostic v4.0)</span></h1>
+        </header>
+        
+        <section class="role-config">
+            <label>Professional Role:</label>
+            <input type="text" id="user-role" placeholder="e.g. Frontend Dev, Stock Trader" value="Software Developer">
+        </section>
+
+        <div class="grid">
+            <div class="card" id="morning-card">
+                <div class="card-title">1. Morning Session</div>
+                <button class="topic-btn" onclick="fetchTopic('morning')">✨ Generate AI Task</button>
+                <div id="morning-topic" class="topic-box">Waiting...</div>
+                <textarea id="morning-input" placeholder="Type answer here..."></textarea>
+                <button id="btn-morning" class="main-btn" onclick="processSession('morning')">Set Baseline</button>
+            </div>
+
+            <div class="card disabled" id="evening-card">
+                <div class="card-title">2. Evening Session</div>
+                <button id="btn-gen-eve" class="topic-btn" disabled onclick="fetchTopic('evening')">✨ Generate AI Task</button>
+                <div id="evening-topic" class="topic-box">Waiting...</div>
+                <textarea id="evening-input" disabled placeholder="Type answer here..."></textarea>
+                <button id="btn-evening" class="main-btn" disabled onclick="processSession('evening')">Run Diagnosis</button>
+            </div>
+        </div>
+
+        <div id="result-box" class="report-box"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
