@@ -1,35 +1,120 @@
-:root { --primary: #4f46e5; --bg: #f8fafc; --bad: #dc2626; --good: #059669; }
+:root {
+    --primary: #4f46e5;
+    --bg: #f8fafc;
+    --text: #1e293b;
+    --bad: #dc2626;
+    --good: #059669;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 
-body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 40px; color: #1e293b; }
-.container { max-width: 1000px; margin: auto; }
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    background: var(--bg); 
+    padding: 40px 20px; 
+    color: var(--text);
+    margin: 0;
+}
+
+.container { max-width: 1100px; margin: auto; }
+
 header { text-align: center; margin-bottom: 30px; }
-header h1 span { font-size: 0.9rem; color: var(--primary); font-weight: 300; }
+header h1 span { font-size: 0.8rem; background: #e2e8f0; padding: 4px 10px; border-radius: 4px; color: var(--primary); }
 
-.role-config { background: white; padding: 20px; border-radius: 12px; margin-bottom: 25px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.role-config input { padding: 8px 15px; border-radius: 6px; border: 1px solid #cbd5e1; width: 250px; margin-left: 10px; }
+/* Settings Bar */
+.api-bar { 
+    background: #1e293b; 
+    padding: 20px; 
+    border-radius: 12px; 
+    margin-bottom: 30px; 
+    color: white; 
+}
+.settings-group { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-end; 
+    gap: 20px; 
+}
+.field { display: flex; flex-direction: column; gap: 5px; flex-grow: 1; }
+.field label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+.field input { 
+    padding: 10px; 
+    border-radius: 6px; 
+    border: none; 
+    font-size: 0.95rem; 
+    background: #334155; 
+    color: white; 
+}
+.status-tag { font-size: 0.8rem; padding-bottom: 10px; }
 
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-.card { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-.card-title { font-weight: bold; margin-bottom: 15px; color: var(--primary); }
+/* Main UI Cards */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.card { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 20px; 
+    box-shadow: var(--card-shadow); 
+    border: 1px solid #e2e8f0;
+}
+.card-title { font-weight: 800; font-size: 1.1rem; color: var(--primary); margin-bottom: 15px; }
 .disabled { opacity: 0.4; pointer-events: none; filter: grayscale(1); }
 
-.topic-box { background: #f1f5f9; padding: 12px; border-radius: 8px; font-style: italic; font-size: 0.9rem; margin: 10px 0; border-left: 4px solid var(--primary); }
-textarea { width: 100%; height: 130px; box-sizing: border-box; border-radius: 10px; border: 2px solid #e2e8f0; padding: 12px; font-size: 1rem; }
+.topic-box { 
+    background: #f1f5f9; 
+    padding: 15px; 
+    border-radius: 8px; 
+    font-style: italic; 
+    font-size: 0.95rem; 
+    margin: 15px 0; 
+    border-left: 5px solid var(--primary);
+    min-height: 40px;
+}
 
-.main-btn { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 15px; }
-.topic-btn { background: none; border: 1px solid var(--primary); color: var(--primary); border-radius: 4px; cursor: pointer; font-size: 0.75rem; padding: 3px 8px; }
+textarea { 
+    width: 100%; 
+    height: 150px; 
+    border-radius: 12px; 
+    border: 2px solid #e2e8f0; 
+    padding: 15px; 
+    font-size: 1rem; 
+    box-sizing: border-box; 
+    transition: 0.3s;
+    resize: none;
+}
+textarea:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
 
-.report-box { margin-top: 40px; background: white; padding: 35px; border-radius: 20px; box-shadow: 0 20px 25px rgba(0,0,0,0.1); display: none; border: 1px solid #e2e8f0; }
-.report-header { border-bottom: 2px solid #1e293b; display: flex; justify-content: space-between; padding-bottom: 15px; margin-bottom: 20px; }
-.status-badge { padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.75rem; }
+.main-btn { 
+    width: 100%; 
+    padding: 14px; 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    margin-top: 15px; 
+}
+.topic-btn { background: none; border: 1px solid var(--primary); color: var(--primary); padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+
+/* Diagnostic Report */
+.report-box { 
+    margin-top: 40px; 
+    background: white; 
+    padding: 40px; 
+    border-radius: 24px; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); 
+    display: none; 
+    border: 2px solid #e2e8f0;
+}
+.report-header { border-bottom: 2px solid #1e293b; display: flex; justify-content: space-between; padding-bottom: 15px; }
+.status-badge { padding: 6px 16px; border-radius: 30px; font-weight: bold; font-size: 0.8rem; }
 .crit { background: #fee2e2; color: var(--bad); }
 .stab { background: #dcfce7; color: var(--good); }
 
-.report-table { width: 100%; margin: 20px 0; border-collapse: collapse; text-align: left; }
-.report-table th, .report-table td { padding: 12px; border-bottom: 1px solid #f1f5f9; }
-.report-table th { color: #64748b; font-size: 0.7rem; text-transform: uppercase; }
+.report-table { width: 100%; margin: 25px 0; border-collapse: collapse; text-align: left; }
+.report-table th, .report-table td { padding: 15px; border-bottom: 1px solid #f1f5f9; }
+.report-table th { color: #64748b; font-size: 0.75rem; text-transform: uppercase; }
 
 .bad { color: var(--bad); font-weight: bold; }
 .good { color: var(--good); }
-.score-footer { font-size: 2.5rem; font-weight: 900; text-align: center; margin: 20px 0; }
-.clinical-note { background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 5px solid #1e293b; font-size: 0.9rem; }
+.score-footer { font-size: 3rem; font-weight: 900; text-align: center; margin: 20px 0; }
+.clinical-note { background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 6px solid #1e293b; font-size: 0.95rem; line-height: 1.6; }

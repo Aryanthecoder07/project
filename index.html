@@ -2,35 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Diagnostic Fatigue AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDE Neuro-Diagnostic AI | Groq Instant</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Mental Fatigue Analyzer <span>(SDE Diagnostic v4.0)</span></h1>
+            <h1>Mental Fatigue Analyzer <span>v6.0 (Groq Instant)</span></h1>
         </header>
         
-        <section class="role-config">
-            <label>Professional Role:</label>
-            <input type="text" id="user-role" placeholder="e.g. Frontend Dev, Stock Trader" value="Software Developer">
+        <section class="api-bar">
+            <div class="settings-group">
+                <div class="field">
+                    <label>Groq API Key:</label>
+                    <input type="password" id="api-key" placeholder="Enter Gsk-xxxx">
+                </div>
+                <div class="field">
+                    <label>Professional Role:</label>
+                    <input type="text" id="user-role" placeholder="e.g. Frontend Dev" value="Software Developer">
+                </div>
+                <div class="status-tag">Model: <b>Llama 3.1 Instant</b></div>
+            </div>
         </section>
 
         <div class="grid">
             <div class="card" id="morning-card">
-                <div class="card-title">1. Morning Session</div>
-                <button class="topic-btn" onclick="fetchTopic('morning')">✨ Generate AI Task</button>
-                <div id="morning-topic" class="topic-box">Waiting...</div>
-                <textarea id="morning-input" placeholder="Type answer here..."></textarea>
-                <button id="btn-morning" class="main-btn" onclick="processSession('morning')">Set Baseline</button>
+                <div class="card-title">1. Baseline (Morning)</div>
+                <div class="controls">
+                    <button class="topic-btn" onclick="fetchTopic('morning')">✨ Generate Unique Task</button>
+                </div>
+                <div id="morning-topic" class="topic-box">Awaiting role calibration...</div>
+                <textarea id="morning-input" placeholder="Type answer here (min 10 words)..."></textarea>
+                <button id="btn-morning" class="main-btn" onclick="processSession('morning')">Calibrate Baseline</button>
             </div>
 
             <div class="card disabled" id="evening-card">
-                <div class="card-title">2. Evening Session</div>
-                <button id="btn-gen-eve" class="topic-btn" disabled onclick="fetchTopic('evening')">✨ Generate AI Task</button>
-                <div id="evening-topic" class="topic-box">Waiting...</div>
-                <textarea id="evening-input" disabled placeholder="Type answer here..."></textarea>
-                <button id="btn-evening" class="main-btn" disabled onclick="processSession('evening')">Run Diagnosis</button>
+                <div class="card-title">2. Analysis (Evening)</div>
+                <div class="controls">
+                    <button id="btn-gen-eve" class="topic-btn" disabled onclick="fetchTopic('evening')">✨ Generate Unique Task</button>
+                </div>
+                <div id="evening-topic" class="topic-box">Awaiting baseline...</div>
+                <textarea id="evening-input" disabled placeholder="Respond to the new challenge..."></textarea>
+                <button id="btn-evening" class="main-btn" disabled onclick="processSession('evening')">Run Full Diagnosis</button>
             </div>
         </div>
 
